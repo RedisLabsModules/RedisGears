@@ -10,6 +10,7 @@ override DEBUG:=1
 endif
 
 ROOT=.
+MK.pyver:=3
 include deps/readies/mk/main
 
 BINDIR=$(BINROOT)/$(SRCDIR)
@@ -280,8 +281,8 @@ $(TARGET:.so=.a): $(OBJECTS) $(LIBEVENT) $(LIBPYTHON) $(HIREDIS)
 
 setup:
 	@echo Setting up system...
-	$(SHOW)./deps/readies/bin/getpy2
-	$(SHOW)python2 ./system-setup.py
+	$(SHOW)./deps/readies/bin/getpy3
+	$(SHOW)python3 ./system-setup.py
 
 fetch get_deps:
 #	-$(SHOW)git submodule update --init --recursive
@@ -414,7 +415,7 @@ test: __sep
 ifneq ($(TEST),)
 	@set -e; \
 	cd pytest; \
-	BB=1 $(TEST_FLAGS) python2 -m RLTest --test $(TEST) $(TEST_ARGS) \
+	BB=1 $(TEST_FLAGS) python3 -m RLTest --test $(TEST) $(TEST_ARGS) \
 		$(RLTEST_GDB) -s -v --module $(abspath $(TARGET)) \
 		--module-args "Plugin $(abspath $(GEARS_PYTHON))"
 else

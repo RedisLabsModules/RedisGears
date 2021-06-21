@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import sys
 import os
@@ -33,7 +33,7 @@ class RedisGearsSetup(paella.Setup):
 
         # pip cannot build gevent on ARM
         if self.platform.is_arm() and self.dist == 'ubuntu' and self.os_version[0] < 20:
-            self.install("python-gevent")
+            self.install("python3-gevent")
         else:
             self.pip_install("gevent")
 
@@ -60,7 +60,7 @@ class RedisGearsSetup(paella.Setup):
 
         self.install("libatomic file")
 
-        self.install("python2-ujson")
+        self.install("python3-ujson")
         self.pip_install("gevent")
 
     def linux_last(self):
