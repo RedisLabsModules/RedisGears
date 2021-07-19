@@ -5,9 +5,12 @@
  *      Author: meir
  */
 
-#define GEARS_MAIN
+#define GEARS_API_MAIN
 
+#define REDISMODULE_MAIN
 #include "redismodule.h"
+
+#include "module.h"
 #include "version.h"
 #include "mgmt.h"
 #include "execution_plan.h"
@@ -24,12 +27,12 @@
 #include "readers/command_reader.h"
 #include "readers/shardid_reader.h"
 #include "mappers.h"
-#include <stdbool.h>
-#include <unistd.h>
 #include "lock_handler.h"
+#include "command_hook.h"
+
+#include <unistd.h>
 #include <dlfcn.h>
 #include <dirent.h>
-#include "command_hook.h"
 
 #ifndef REDISGEARS_GIT_SHA
 #define REDISGEARS_GIT_SHA "unknown"

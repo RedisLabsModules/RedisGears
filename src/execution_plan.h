@@ -5,16 +5,15 @@
  *      Author: meir
  */
 
-#ifndef SRC_EXECUTION_PLAN_H_
-#define SRC_EXECUTION_PLAN_H_
+#pragma once
 
-#include <stdbool.h>
 #include "redisgears.h"
 #include "commands.h"
+
 #include "utils/dict.h"
 #include "utils/adlist.h"
 #include "utils/buffer.h"
-#include "common.h"
+
 #define STEP_TYPES \
     X(NONE, "none") \
     X(MAP, "map") \
@@ -395,5 +394,3 @@ void ExecutionPlan_Clean();
 StepPendingCtx* ExecutionPlan_PendingCtxGetShallowCopy(StepPendingCtx* pctx);
 void ExecutionPlan_PendingCtxFree(StepPendingCtx* pctx);
 StepPendingCtx* ExecutionPlan_PendingCtxCreate(ExecutionPlan* ep, ExecutionStep* step, size_t maxSize);
-
-#endif /* SRC_EXECUTION_PLAN_H_ */

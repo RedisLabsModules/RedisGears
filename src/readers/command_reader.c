@@ -1,9 +1,12 @@
 #include "command_reader.h"
+#include "module.h"
 #include "redisgears_memory.h"
 #include "execution_plan.h"
 #include "record.h"
 #include "lock_handler.h"
 #include "version.h"
+#include "cluster.h"
+
 #include <string.h>
 
 #define COMMAND_FLAG_MOVEABLEKEYS (1 << 0)

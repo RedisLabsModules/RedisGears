@@ -5,15 +5,17 @@
  *      Author: root
  */
 
-#include "common.h"
+#include "module.h"
+#include "version.h"
 #include "cluster.h"
 #include "redisgears_memory.h"
+#include "redisgears.h"
+#include "utils/arr_rm_alloc.h"
+
 #include <string.h>
 #include <stdarg.h>
 #include <assert.h>
 #include <uuid/uuid.h>
-#include "utils/arr_rm_alloc.h"
-#include "redisgears.h"
 
 RedisModuleCtx *staticCtx = NULL;
 
